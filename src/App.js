@@ -1,24 +1,24 @@
-import logo from './logo.svg';
 import './App.css';
+import { Routes, Route, useNavigate } from 'react-router-dom';
+import { Nav } from 'react-bootstrap';
+import Home from './Pages/Home';
+import Map from './Pages/Map';
 
 function App() {
+  let navigate = useNavigate();
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Nav className="justify-content-center">
+        <Nav.Link onClick={() => { navigate('/') }}>Home</Nav.Link>
+        <Nav.Link onClick={() => { navigate('/map') }}>Map</Nav.Link>
+      </Nav>
+
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/map" element={<Map />} />
+      </Routes>
+    </>
   );
 }
 
