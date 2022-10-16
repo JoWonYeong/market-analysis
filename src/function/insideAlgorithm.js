@@ -4,7 +4,7 @@ export default function insideAlgorithm(path, inside, clickX, clickY) {
         var xi = path[i][0], yi = path[i][1];
         var xj = path[j][0], yj = path[j][1];
 
-        var intersect = ((yi > clickY) != (yj > clickY)) && (clickX < (xj - xi) * (clickY - yi) / (yj - yi) + xi);
+        var intersect = ((yi > clickY) !== (yj > clickY)) && (clickX < (xj - xi) * (clickY - yi) / (yj - yi) + xi);
         if (intersect) {
             inside = !inside
         }
