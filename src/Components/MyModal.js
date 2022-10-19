@@ -1,3 +1,4 @@
+import DongDetail from './DongDetail';
 import { Modal, Button } from 'react-bootstrap';
 
 export default function MyModal(props) {
@@ -5,24 +6,18 @@ export default function MyModal(props) {
         <Modal
             {...props}
             size="fullscreen"
-            // size="xl"
             aria-labelledby="contained-modal-title-vcenter"
             centered
         >
-            <Modal.Header closeButton>
+            <Modal.Header>
                 <Modal.Title id="example-custom-modal-styling-title">
                     {props.dong}
                 </Modal.Title>
+                <Button onClick={props.onHide}>닫기</Button>
             </Modal.Header>
             <Modal.Body>
-                <h4>{props.dong} 관련 정보</h4>
-                <p>
-                    블라블라
-                </p>
+                <DongDetail dong={props.dong} />
             </Modal.Body>
-            <Modal.Footer>
-                <Button onClick={props.onHide}>닫기</Button>
-            </Modal.Footer>
         </Modal>
     )
 }
