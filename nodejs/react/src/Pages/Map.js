@@ -150,6 +150,7 @@ function KakaoMapScript(map, setOpen, setDong) {
         })
     }
 
+    setMarker(map)
 }
 
 
@@ -220,4 +221,96 @@ function inside(mouseEvent, map, overlay) {
     }
 
     return inside
+}
+
+function setMarker(map) {
+    // const jsonData1 = require('../data/수성구_고기.json')
+    // const jsonData2 = require('../data/수성구_양식.json')
+    // const jsonData3 = require('../data/수성구_일식.json')
+    // const jsonData4 = require('../data/수성구_중식.json')
+    // const jsonData5 = require('../data/수성구_카페.json')
+    const jsonData6 = require('../data/수성구_한식.json')
+    // var storeLocList = [{
+    //     lng: 128.6397851,
+    //     lat: 35.8203289
+    // }, {
+    //     lng: 128.6442596,
+    //     lat: 35.8159789
+    // }, {
+    //     lng: 128.6395125,
+    //     lat: 35.8659751
+    // }, {
+    //     lng: 128.7075786,
+    //     lat: 35.8347257
+    // }]
+
+    var imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png', // 마커이미지의 주소입니다    
+    imageSize = new kakao.maps.Size(5, 5), // 마커이미지의 크기입니다
+    imageOption = {offset: new kakao.maps.Point(1, 1)}; // 마커이미지의 옵션입니다. 마커의 좌표와 일치시킬 이미지 안에서의 좌표를 설정합니다.
+
+    // 마커의 이미지정보를 가지고 있는 마커이미지를 생성합니다
+    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize, imageOption)
+
+    // for (let idx in jsonData1) {
+    //     var coords1 = new kakao.maps.LatLng(jsonData1[idx].위도, jsonData1[idx].경도)
+
+    //     map.marker = new kakao.maps.Marker({
+    //         map: map,
+    //         position: coords1, 
+    //         image: markerImage
+    //     })
+    // }
+
+    // for (let idx in jsonData2) {
+    //     var coords2 = new kakao.maps.LatLng(jsonData2[idx].위도, jsonData2[idx].경도)
+
+    //     map.marker = new kakao.maps.Marker({
+    //         map: map,
+    //         position: coords2, 
+    //         image: markerImage
+    //     })
+    // }
+
+    // for (let idx in jsonData3) {
+    //     var coords3 = new kakao.maps.LatLng(jsonData3[idx].위도, jsonData3[idx].경도)
+
+    //     map.marker = new kakao.maps.Marker({
+    //         map: map,
+    //         position: coords3, 
+    //         image: markerImage
+    //     })
+    // }
+
+    // for (let idx in jsonData4) {
+    //     var coords4 = new kakao.maps.LatLng(jsonData4[idx].위도, jsonData4[idx].경도)
+
+    //     map.marker = new kakao.maps.Marker({
+    //         map: map,
+    //         position: coords4, 
+    //         image: markerImage
+    //     })
+    // }
+
+    // for (let idx in jsonData5) {
+    //     var coords5 = new kakao.maps.LatLng(jsonData5[idx].위도, jsonData5[idx].경도)
+
+    //     map.marker = new kakao.maps.Marker({
+    //         map: map,
+    //         position: coords5, 
+    //         image: markerImage
+    //     })
+    // }
+
+    for (let idx in jsonData6) {
+        var coords6 = new kakao.maps.LatLng(jsonData6[idx].위도, jsonData6[idx].경도)
+
+        map.marker = new kakao.maps.Marker({
+            map: map,
+            position: coords6, 
+            image: markerImage
+        })
+    }
+
+    var changeMaptype = kakao.maps.MapTypeId.USE_DISTRICT
+    map.addOverlayMapTypeId(changeMaptype)
 }

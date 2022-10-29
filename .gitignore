@@ -1,23 +1,29 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
 # dependencies
-/node_modules
-/.pnp
-.pnp.js
+/nodejs/react/node_modules
+/nodejs/react/.pnp
+/nodejs/react/.pnp.js
 
 # testing
-/coverage
+/nodejs/react/coverage
 
 # production
-/build
+/nodejs/react/build
 
 # misc
-.DS_Store
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
+/nodejs/react/.DS_Store
+/nodejs/react/.env.local
+/nodejs/react/.env.development.local
+/nodejs/react/.env.test.local
+/nodejs/react/.env.production.local
 
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+/nodejs/react/npm-debug.log*
+/nodejs/react/yarn-debug.log*
+/nodejs/react/yarn-error.log*
+
+docker-compose.yml
+/nodejs/node_modules
+/nodejs/.dockerignore
+/nodejs/Dockerfile
+/nginx/Dockerfile
