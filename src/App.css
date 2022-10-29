@@ -37,13 +37,16 @@
   height: 500px;
 }
 
-.dongDetail {
+.detail_box {
   display: flex;
 }
 
-.detailText {
-  padding: 10px;
-  width: 60%;
+.detail_left {
+  width: 40%;
+}
+
+.detail_left_tab {
+  width: 100%;
 }
 
 .start {
