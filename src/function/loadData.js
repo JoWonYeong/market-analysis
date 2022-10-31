@@ -29,8 +29,5 @@ export default function loadData(dong) {
         }
     })
 
-    // console.log(`${dong}의 남녀비율: ${genderRatio}, 평균연령: ${ageAvg}, 평균유동인구: ${populationAvg}, 업종별 평균 영업기간: ${periodAvg}, 영업기간 평균이상업종: ${aboveAvgCategories}`);
-    // console.log(`여자비율: ${female}%, 남자비율: ${male}%`);
-
     return [male, female, ageAvg, populationAvg, periodAvg, aboveAvgCategories];
 }

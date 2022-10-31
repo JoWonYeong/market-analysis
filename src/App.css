@@ -19,10 +19,6 @@
   font-weight: bold;
 }
 
-/* .modal-content {
-  height: 500px;
-} */
-
 .detail_box {
   display: flex;
 }
@@ -45,35 +41,29 @@
 
 .detail_right_12 {
   width: 65%;
-  /* border: 2px solid skyblue; */
 }
 
 .detail_right_34 {
   width: 35%;
-  /* border: 2px solid skyblue; */
 }
 
 
 .detail_right_1 {
   /* height: 50vh; */
   height: 55%;
-  /* border: 2px solid pink; */
 }
 
 .detail_right_2 {
   /* height: 30vh; */
   height: 35%;
-  /* border: 2px solid pink; */
 }
 
 .detail_right_3 {
   height: 40%;
-  /* border: 2px solid pink; */
 }
 
 .detail_right_4 {
   height: 50%;
-  /* border: 2px solid pink; */
 }
 
 .chart3 {
