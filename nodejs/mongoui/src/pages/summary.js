@@ -63,13 +63,21 @@ function readExcel(f) {
 
 function setXlsxData() {
 
-    axios.post(url + '/summary/set-xlsx-data', xlsxData).then(response => {
+    axios.post(url + '/summary/set-xlsx-data', {'data': JSON.stringify(xlsxData).toString()}).then(response => {
         var consoleTextFrame = document.getElementById('receiveInsertXlsxResult');
         consoleTextFrame = (consoleTextFrame.contentWindow) ? consoleTextFrame.contentWindow
             : (consoleTextFrame.contentDocument.document) ? consoleTextFrame.contentDocument.document
             : consoleTextFrame.contentDocument;
         consoleTextFrame.document.open();
         consoleTextFrame.document.write(JSON.stringify(response));
+        consoleTextFrame.document.close();
+    }).catch(err => {
+        var consoleTextFrame = document.getElementById('receiveInsertXlsxResult');
+        consoleTextFrame = (consoleTextFrame.contentWindow) ? consoleTextFrame.contentWindow
+            : (consoleTextFrame.contentDocument.document) ? consoleTextFrame.contentDocument.document
+            : consoleTextFrame.contentDocument;
+        consoleTextFrame.document.open();
+        consoleTextFrame.document.write(JSON.stringify(err));
         consoleTextFrame.document.close();
     })
 }

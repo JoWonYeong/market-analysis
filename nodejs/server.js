@@ -32,11 +32,11 @@ app.use(express.static(path.join(__dirname, 'mongoui/build')))
 app.use('/test', require('./routes/test'))
 app.use('/summary', require('./routes/summary'))
 
-app.get('/', (req, res) => {
+app.get('/commercial-analysis/*', (req, res) => {
     res.sendFile(path.join(__dirname, '/react/build/index.html'))
 })
 
-app.get('/dbui', (req, res) => {
+app.get('/dbui/*', (req, res) => {
     res.sendFile(path.join(__dirname, '/mongoui/build/index.html'))
   })
 
