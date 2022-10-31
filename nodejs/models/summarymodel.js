@@ -12,7 +12,7 @@ const summaryModelSchema = new mongoose.Schema({
     chinese_period_avg: { type: Number },
     korean_period_avg: { type: Number },
     cafe_period_avg: { type: Number },
-    above_period_avg: [{ type: String}]
+    above_period_avg: { type: String, trim: true }
 },
 {
     collection: collectionName,

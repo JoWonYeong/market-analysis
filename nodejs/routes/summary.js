@@ -9,4 +9,13 @@ router.get('/', (req, res) => {
     })
 })
 
+router.post('/set-xlsx-data', (req, res) => {
+    res.send(req)
+    // summaryModel.insertMany(req.body).then(response => {
+    //     res.send(response)
+    // }).catch(err => {
+    //     res.send(err)
+    // })
+})
+
 module.exports = router
