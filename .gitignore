@@ -22,6 +22,27 @@
 /nodejs/react/yarn-debug.log*
 /nodejs/react/yarn-error.log*
 
+
+# dependencies
+/nodejs/mongoui/node_modules
+/nodejs/mongoui/.pnp
+/nodejs/mongoui/.pnp.js
+
+# testing
+/nodejs/mongoui/coverage
+
+# misc
+/nodejs/mongoui/.DS_Store
+/nodejs/mongoui/.env.local
+/nodejs/mongoui/.env.development.local
+/nodejs/mongoui/.env.test.local
+/nodejs/mongoui/.env.production.local
+
+/nodejs/mongoui/npm-debug.log*
+/nodejs/mongoui/yarn-debug.log*
+/nodejs/mongoui/yarn-error.log*
+
+
 docker-compose.yml
 /nodejs/node_modules
 /nodejs/.dockerignore

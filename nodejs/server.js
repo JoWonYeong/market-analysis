@@ -28,10 +28,16 @@ let corsOptions = {
 app.use(cors(corsOptions))
 
 app.use(express.static(path.join(__dirname, 'react/build')))
+app.use(express.static(path.join(__dirname, 'mongoui/build')))
 app.use('/test', require('./routes/test'))
+app.use('/summary', require('./routes/summary'))
 
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, '/react/build/index.html'))
+})
+
+app.get('/dbui', (req, res) => {
+    res.sendFile(path.join(__dirname, '/mongoui/build/index.html'))
   })
 
 app.listen(PORT, SERVER_IP, () => console.log(`Server listening on ip ${SERVER_IP} on port ${PORT}`))
