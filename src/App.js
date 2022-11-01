@@ -10,13 +10,13 @@ function App() {
   return (
     <>
       <Nav className="justify-content-center">
-        <Nav.Link onClick={() => { navigate('/') }}>Home</Nav.Link>
-        <Nav.Link onClick={() => { navigate('/map') }}>Map</Nav.Link>
+        <Nav.Link onClick={() => { navigate('/commercial-analysis/') }}>Home</Nav.Link>
+        <Nav.Link onClick={() => { navigate('/commercial-analysis/map') }}>Map</Nav.Link>
       </Nav>
 
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/map" element={<Map />} />
+        <Route path="/commercial-analysis/" element={<Home />} />
+        <Route path="/commercial-analysis/map" element={<Map />} />
       </Routes>
     </>
   );
