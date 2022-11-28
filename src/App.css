@@ -1,10 +1,68 @@
-.map_wrap {
-  position: relative;
-  width: 100%;
+.d_cursor {
+  cursor: default;
 }
 
-#myMap {
-  margin: auto;
+.home_title {
+  height: 13vh;
+  background-color: #F3F4FA;
+  font-weight: bold;
+  font-size: 2.2rem;
+  text-align: center;
+  line-height: 13vh;
+}
+
+.home {
+  display: flex;
+}
+
+.home_left {
+  width: 35%;
+  height: 87vh;
+  background-color: #F3F4FA;
+}
+
+.home_right {
+  width: 65%;
+}
+
+.accordion-button {
+  height: 10vh;
+}
+
+.home_left_header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #004c80;
+}
+
+.home_left_box {
+  background-color: rgb(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 66vh;
+}
+
+.box_weather {
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+}
+
+.box_weather_detail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 25%;
+  width: 90%;
+  margin: 0 5%;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 20px;
+}
+
+.box_weather_element {
+  color: rgb(66, 66, 66);
+  font-weight: bold;
+  font-size: 1.7rem;
 }
 
 .overlay {
@@ -17,6 +75,10 @@
   left: 15px;
   padding: 2px;
   font-weight: bold;
+}
+
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
 .detail_box {
@@ -34,11 +96,6 @@
   height: 90vh;
 }
 
-.detail_left_tab {
-  width: 100%;
-}
-
-
 .detail_right_12 {
   width: 65%;
 }
@@ -49,12 +106,10 @@
 
 
 .detail_right_1 {
-  /* height: 50vh; */
   height: 55%;
 }
 
 .detail_right_2 {
-  /* height: 30vh; */
   height: 35%;
 }
 
@@ -67,7 +122,6 @@
 }
 
 .chart3 {
-  /* width: 100%; */
   height: 100%;
   background-color: #F3F4FA;
 }
@@ -139,4 +193,12 @@
 .end {
   opacity: 1;
   transition: all 0.5s;
+}
+
+.day {
+  background: url("img/day.jpg") center/cover no-repeat;
+}
+
+.night {
+  background: url("img/night.jpg") center/cover no-repeat;
 }

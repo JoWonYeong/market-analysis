@@ -1,23 +1,19 @@
 import './App.css';
 import { Routes, Route, useNavigate } from 'react-router-dom';
-import { Nav } from 'react-bootstrap';
-import Home from './Pages/Home';
 import Map from './Pages/Map';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { useEffect } from 'react';
 
 function App() {
   let navigate = useNavigate();
+  useEffect(() => {
+    navigate('/commercial-analysis/')
+  }, [])
 
   return (
     <>
-      <Nav className="justify-content-center">
-        <Nav.Link onClick={() => { navigate('/commercial-analysis/') }}>Home</Nav.Link>
-        <Nav.Link onClick={() => { navigate('/commercial-analysis/map') }}>Map</Nav.Link>
-      </Nav>
-
-      <Routes>
-        <Route path="/commercial-analysis/" element={<Home />} />
-        <Route path="/commercial-analysis/map" element={<Map />} />
-      </Routes>
+      <Map />
     </>
   );
 }

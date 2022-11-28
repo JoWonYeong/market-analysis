@@ -1,30 +1,48 @@
 import dong from '../data/dong.json'
 import React, { useState, useEffect } from 'react';
-import MyModal from '../Components/MyModal'
+import { useNavigate } from 'react-router-dom';
+import HomeLeft from '../Components/HomeLeft';
+import MyModal from '../Components/MyModal';
+
 const { kakao } = window;
 
 export default function Map() {
+    let navigate = useNavigate();
+
     let [open, setOpen] = useState(false);
     let [dong, setDong] = useState('');
 
     useEffect(() => {
-        const container = document.getElementById('myMap');
+        const container = document.getElementById('home_right_map');
         const options = {
             center: new kakao.maps.LatLng(35.836042613869544, 128.6582783008829),
             level: 7
         };
         const map = new kakao.maps.Map(container, options);
 
+        // 지도 확대 축소를 제어할 수 있는 줌 컨트롤 생성
+        var zoomControl = new kakao.maps.ZoomControl();
+        map.addControl(zoomControl, kakao.maps.ControlPosition.RIGHT);
+        map.setZoomable(false);     // 지도 확대/축소 불가능
+
         KakaoMapScript(map, setOpen, setDong);
+
     }, []);
 
     return (
         <>
-            <div className="map_wrap">
-                <div id="myMap" style={{
-                    width: '90%',
-                    height: '90vh'
-                }}></div>
+            <div className='home_title'><span style={{ cursor: 'pointer' }} onClick={() => { navigate('/commercial-analysis/') }}>판매데이터와 공공데이터를 활용한 카페 상권 분석</span>
+            </div>
+            <div className='home'>
+                <div className='home_left'>
+                    <HomeLeft />
+                </div>
+                <div className="home_right">
+                    <div id="home_right_map" className='shadow' style={{
+                        width: '100%',
+                        height: '87vh'
+                    }} ></div>
+                </div>
             </div>
             <MyModal
                 show={open}
@@ -71,6 +89,8 @@ function KakaoMapScript(map, setOpen, setDong) {
             customOverlay.setContent('<div class="overlay">' + area.name + '</div>');
             customOverlay.setPosition(mouseEvent.latLng);
             customOverlay.setMap(map);
+
+            map.setCursor('pointer');
         });
 
         // mousemove : 마우스 따라 움직이면서 오버레이1 위치 변경
@@ -82,6 +102,7 @@ function KakaoMapScript(map, setOpen, setDong) {
         kakao.maps.event.addListener(polygon, 'mouseout', function () {
             polygon.setOptions({ fillColor: '#fff' });
             customOverlay.setMap(null);
+            map.setCursor('move');
         });
 
 
@@ -93,7 +114,6 @@ function KakaoMapScript(map, setOpen, setDong) {
     }
 
 }
-
 
 // areas 배열에 행정동 좌표 배열 넣기
 function putArea(areas) {

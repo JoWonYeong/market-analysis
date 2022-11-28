@@ -46,8 +46,8 @@ export default function Chart4({ male, female }) {
         },
     };
     return (
-        <div style={{ margin: '10px 10px 10px 0px', width: '100%', height: "100%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)" }}>
-            <ReactApexChart options={options} series={series} type="pie" width="97%" height='100%' />
+        <div className='shadow' style={{ margin: '10px 10px 10px 0px', width: '100%', height: "100%" }}>
+            <ReactApexChart options={options} series={series} type="pie" width="100%" height='100%' />
         </div >
     )
 }

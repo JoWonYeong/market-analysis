@@ -131,12 +131,12 @@ export default function Chart2({ dong, ageAvg, populationAvg }) {
 
     return (
         <>
-            <div style={{ height: "50%", margin: '10px 10px 0px 10px', position: 'relative', boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)" }}>
-                <div style={{ zIndex: '1', fontWeight: 'bold', position: 'absolute', left: '50%', transform: 'translateX(-50%)', top: '-6px', fontSize: '1.5rem' }}>평균 연령</div>
+            <div className='shadow' style={{ height: "50%", margin: '10px 10px 0px 10px', position: 'relative' }}>
+                <div className='d_cursor' style={{ zIndex: '1', fontWeight: 'bold', position: 'absolute', left: '50%', transform: 'translateX(-50%)', top: '-6px', fontSize: '1.5rem' }}>평균 연령</div>
                 <ReactApexChart options={options1} series={series1} type="bar" width="100%" height="100%" />
             </div >
-            <div style={{ height: "50%", margin: '0px 10px 10px 10px', position: 'relative', boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)" }}>
-                <div style={{ zIndex: '1', fontWeight: 'bold', position: 'absolute', left: '50%', transform: 'translateX(-50%)', top: '-6px', fontSize: '1.5rem' }}>평균 유동인구</div>
+            <div className='shadow' style={{ height: "50%", margin: '0px 10px 10px 10px', position: 'relative' }}>
+                <div className='d_cursor' style={{ zIndex: '1', fontWeight: 'bold', position: 'absolute', left: '50%', transform: 'translateX(-50%)', top: '-6px', fontSize: '1.5rem' }}>평균 유동인구</div>
                 <ReactApexChart options={options2} series={series2} type="bar" width="100%" height="100%" />
             </div >
         </>

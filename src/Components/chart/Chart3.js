@@ -20,7 +20,7 @@ export default function Chart3({ aboveAvgCategories }) {
     }, [])
 
     return (
-        <div className="chart3" style={{ margin: "10px 10px 10px 0px", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)" }}>
+        <div className="chart3 shadow d_cursor" style={{ width: "100%", margin: "10px 10px 10px 0px" }}>
             <div className="chart3_title">
                 영업기간 평균 이상 업종
             </div>

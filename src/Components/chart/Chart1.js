@@ -2,13 +2,14 @@ import React from 'react';
 import ReactApexChart from 'react-apexcharts';
 
 export default function Chart1({ periodAvg }) {
-    var colors = ['#26a0fc', '#26e7a6', '#febc3b', '#ff6178', '#8b75d7'];
-    var 수성구평균영업기간 = [3.29, 1.83, 6.90, 1.23, 1.18];
+    // var colors = ['#26a0fc', '#26e7a6', '#febc3b', '#ff6178', '#8b75d7'];
+    var colors = ['#ff6178', '#a0a0a0', '#a0a0a0', '#a0a0a0', '#a0a0a0'];
+    var 수성구평균영업기간 = [1.18, 3.29, 1.83, 6.90, 1.23];
 
     const series = [{
         data: [
             {
-                x: '식육구이점',
+                x: '휴게음식점',
                 y: periodAvg[0],
                 goals: [{
                     name: 'avg',
@@ -19,7 +20,7 @@ export default function Chart1({ periodAvg }) {
                 }]
             },
             {
-                x: '일식점',
+                x: '식육구이점',
                 y: periodAvg[1],
                 goals: [{
                     name: 'avg',
@@ -30,7 +31,7 @@ export default function Chart1({ periodAvg }) {
                 }]
             },
             {
-                x: '중식점',
+                x: '일식점',
                 y: periodAvg[2],
                 goals: [{
                     name: 'avg',
@@ -41,7 +42,7 @@ export default function Chart1({ periodAvg }) {
                 }]
             },
             {
-                x: '한식점',
+                x: '중식점',
                 y: periodAvg[3],
                 goals: [{
                     name: 'avg',
@@ -52,7 +53,7 @@ export default function Chart1({ periodAvg }) {
                 }]
             },
             {
-                x: '휴게음식점',
+                x: '한식점',
                 y: periodAvg[4],
                 goals: [{
                     name: 'avg',
@@ -97,11 +98,11 @@ export default function Chart1({ periodAvg }) {
         colors: colors,
         xaxis: {
             categories: [
+                '휴게음식점',
                 '식육구이점',
                 '일식점',
                 '중식점',
-                '한식점',
-                '휴게음식점'
+                '한식점'
             ],
             labels: {
                 offsetY: 6,
@@ -126,7 +127,7 @@ export default function Chart1({ periodAvg }) {
     }
 
     return (
-        <div style={{ margin: '10px 10px 10px 10px', height: "100%", boxShadow: "0 4px 8px 0 rgba(0, 0, 0, 0.2)" }}>
+        <div className='shadow' style={{ margin: '10px 10px 10px 10px', height: "100%" }}>
             <ReactApexChart options={options} series={series} type="bar" width="100%" height="100%" />
         </div>
     )

@@ -1,17 +1,12 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import dong from '../data/dong.json';
 import dongCenter from '../data/dongCenter.json';
-import meat from '../data/crawling/meat.json';
-import korean from '../data/crawling/korean.json';
 import cafe from '../data/crawling/cafe.json';
-import chinese from '../data/crawling/chinese.json';
-import japanese from '../data/crawling/japanese.json';
 import Chart1 from "./chart/Chart1";
 import Chart2 from "./chart/Chart2";
 import Chart3 from "./chart/Chart3";
 import Chart4 from "./chart/Chart4";
 import loadData from "../function/loadData";
-import { Nav } from "react-bootstrap";
 const { kakao } = window;
 
 export default function DongDetail({ dong }) {
@@ -25,7 +20,6 @@ export default function DongDetail({ dong }) {
     let x, y;
     let mapLevel;
     let dongPath = [];
-    let [type, setType] = useState(meat);
 
     // 변수값 채우기
     [male, female, ageAvg, populationAvg, periodAvg, aboveAvgCategories] = loadData(dong);
@@ -39,34 +33,15 @@ export default function DongDetail({ dong }) {
         };
         const map = new kakao.maps.Map(container, options);
 
-        KakaoMapScript(map, dongPath, dong, type);
-    }, [type]);
+        KakaoMapScript(map, dongPath, dong);
+    }, []);
 
     return (
         <div className="detail_box">
             <div className="detail_left">
-                <div className="detail_left_tab">
-                    <Nav fill variant="tabs" defaultActiveKey="type-0" style={{ fontSize: '1.5em' }}>
-                        <Nav.Item>
-                            <Nav.Link eventKey="type-0" onClick={() => { setType(meat) }}>식육구이점</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="type-1" onClick={() => { setType(japanese) }}>일식점</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="type-2" onClick={() => { setType(chinese) }}>중식점</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="type-3" onClick={() => { setType(korean) }}>한식점</Nav.Link>
-                        </Nav.Item>
-                        <Nav.Item>
-                            <Nav.Link eventKey="type-4" onClick={() => { setType(cafe) }}>휴게음식점</Nav.Link>
-                        </Nav.Item>
-                    </Nav>
-                </div>
                 <div id="detail_left_map" style={{
                     width: '100%',
-                    height: '76vh'
+                    height: '85vh'
                 }}></div>
             </div>
             <div className="detail_right">
@@ -91,10 +66,10 @@ export default function DongDetail({ dong }) {
     )
 }
 
-function KakaoMapScript(map, dongPath, dong, type) {
+function KakaoMapScript(map, dongPath, dong) {
     let restaurant = [];
     var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
-    type.forEach((a, i) => {
+    cafe.forEach((a, i) => {
         if (dong == a.행정동) {
             let markInfo = {};
             markInfo.dongName = a.행정동;
