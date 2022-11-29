@@ -1,0 +1,37 @@
+version: '3'
+services:
+  nginx:
+    container_name: nginx-proxy
+    build: ./nginx
+    restart: always
+    image: nginx
+    ports:
+      - 80:80
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    # volumes:
+    depends_on:
+      - backend
+  
+  backend:
+    container_name: backend
+    build: ./nodejs
+    restart: always
+    ports:
+      - 4500:4500
+    environment:
+      PORT: 4500
+      MONGODB_URI: mongodb://mongo_db:27017
+      DB_NAME: caad
+    depends_on:
+      - mongo_db
+
+  mongo_db:
+    container_name: db_container
+    image: mongo:latest
+    restart: always
+    volumes:
+      - mongo_db:/data/db
+    
+volumes:
+  mongo_db: {}
