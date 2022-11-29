@@ -18,4 +18,13 @@ router.post('/set-xlsx-data', (req, res) => {
     })
 })
 
+router.post('/remove-all', (req, res) => {
+
+    summaryModel.removeAll().then(response => {
+        res.send(response)
+    }).catch(err => {
+        res.send(err)
+    })
+})
+
 module.exports = router

@@ -25,4 +25,9 @@ summaryModelSchema.statics.findAll = function() {
     return this.find({})
 }
 
+summaryModelSchema.statics.removeAll = function() {
+
+    return this.remove({})
+}
+
 module.exports = mongoose.model(collectionName, summaryModelSchema)
