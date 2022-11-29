@@ -1,0 +1,137 @@
+.box_slider {
+    height: 36vh;
+    width: 90%;
+    margin: 5% 5% 5% 5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+    background-color: rgb(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.box_slider_seeAll {
+    background-color: rgb(255, 255, 255, 0.3);
+    color: rgb(66, 66, 66, 0.8);
+    border-radius: 10px;
+    position: absolute;
+    width: 20%;
+    height: 6vh;
+    top: 2%;
+    right: 1%;
+    z-index: 1;
+    font-size: 1.2rem;
+    line-height: 6vh;
+    font-weight: bold;
+    text-align: center;
+}
+
+.box_slider_seeAll_overlay {
+    position: absolute;
+    width: 80%;
+    height: 40vh;
+    font-size: 1rem;
+    top: -30%;
+    right: -79%;
+    z-index: 2;
+    opacity: 0;
+}
+
+.seeAll_triangle {
+    position: absolute;
+    top: 30%;
+    left: -1%;
+    width: 0px;
+    height: 0px;
+    border-bottom: 2.4rem solid #F3F4FA;
+    border-left: 1.2rem solid transparent;
+    border-right: 1.2rem solid transparent;
+    transform: rotate(270deg);
+    z-index: 4;
+}
+
+.seeAlll_info {
+    position: absolute;
+    width: 96%;
+    height: 100%;
+    border-radius: 10px;
+    left: 4%;
+    background-color: #F3F4FA;
+    border: 3px solid grey;
+    z-index: 3;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.end2 {
+    opacity: 1;
+    transition: all 0.5s;
+    scale: 1;
+    transform: translateY(-5%);
+}
+
+.seeAll_info_title {
+    height: 13%;
+    margin: 1% 0%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+.seeAll_info_detail {
+    display: flex;
+    height: 85%;
+    font-size: 1.5rem;
+    text-align: center;
+    justify-content: center;
+}
+
+.seeAll_info_ranking {
+    width: 15%;
+    font-weight: bold;
+}
+
+.ranking_element {
+    height: 20%;
+}
+
+.seeAll_info_menu {
+    width: 75%;
+}
+
+.menu_element {
+    height: 20%;
+}
+
+.box_slider_element {
+    color: rgb(66, 66, 66);
+    font-size: 1.6rem;
+    font-weight: bold;
+    height: 8vh;
+    line-height: 8vh;
+
+    position: relative;
+    text-align: center;
+}
+
+.slick-next:before,
+.slick-prev:before {
+    display: none;
+}
+
+.slick-prev,
+.slick-next {
+    pointer-events: none;
+}
+
+.center .slick-center .box_slider_element {
+    color: #febc3b;
+    text-shadow: 1px 1px 1px rgb(176, 176, 176, 0.7);
+    opacity: 1;
+    -ms-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+.center .box_slider_element {
+    transition: all .3s ease;
+}

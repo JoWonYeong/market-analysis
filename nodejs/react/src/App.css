@@ -1,13 +1,71 @@
-.map_wrap {
-  position: relative;
-  width: 100%;
+.d_cursor {
+  cursor: default;
 }
 
-#myMap {
-  margin: auto;
+.home_title {
+  height: 13vh;
+  background-color: #F3F4FA;
+  font-weight: bold;
+  font-size: 2.2rem;
+  text-align: center;
+  line-height: 13vh;
 }
 
-.overlay1 {
+.home {
+  display: flex;
+}
+
+.home_left {
+  width: 35%;
+  height: 87vh;
+  background-color: #F3F4FA;
+}
+
+.home_right {
+  width: 65%;
+}
+
+.accordion-button {
+  height: 10vh;
+}
+
+.home_left_header {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #004c80;
+}
+
+.home_left_box {
+  background-color: rgb(255, 255, 255, 0.3);
+  display: flex;
+  flex-direction: column;
+  height: 66vh;
+}
+
+.box_weather {
+  display: flex;
+  flex-direction: column;
+  height: 30vh;
+}
+
+.box_weather_detail {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 25%;
+  width: 90%;
+  margin: 0 5%;
+  background-color: rgb(255, 255, 255, 0.5);
+  border-radius: 20px;
+}
+
+.box_weather_element {
+  color: rgb(66, 66, 66);
+  font-weight: bold;
+  font-size: 1.7rem;
+}
+
+.overlay {
   position: absolute;
   background: #fff;
   border: 1px solid #888;
@@ -19,20 +77,128 @@
   font-weight: bold;
 }
 
-/* overlay2 크기 변경하면 Map 가서 inside()함수 안에 변경해야함 */
-.overlay2 {
-  width: 200px;
-  height: 200px;
-  background-color: beige;
-  border: 3px solid white;
+.shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 }
 
-.close,
-.detail {
-  border: 2px solid grey;
+.detail_box {
+  display: flex;
+}
+
+.detail_left {
+  width: 40%;
+  height: 90vh;
+}
+
+.detail_right {
+  display: flex;
+  width: 60%;
+  height: 90vh;
+}
+
+.detail_right_12 {
+  width: 65%;
+}
+
+.detail_right_34 {
+  width: 35%;
+}
+
+
+.detail_right_1 {
+  height: 55%;
+}
+
+.detail_right_2 {
+  height: 35%;
+}
+
+.detail_right_3 {
+  height: 40%;
+}
+
+.detail_right_4 {
+  height: 50%;
+}
+
+.chart3 {
+  height: 100%;
+  background-color: #F3F4FA;
+}
+
+.chart3_title {
+  display: flex;
+  justify-content: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin-top: 5px;
+  height: 20%;
+  color: #263238;
+}
+
+.chart3_circles {
+  display: flex;
+  justify-content: center;
+  height: 70%;
+  align-items: center;
+}
+
+.chart3_circle {
+  border-radius: 50%;
+  background-color: #f6a5a5;
+  margin: 5px;
   text-align: center;
+  color: #263238;
+  font-size: 1.8em;
+  font-weight: bold;
 }
 
-.modal-content {
-  height: 500px;
+.chart3_size0 {
+  background-color: #F3F4FA;
+}
+
+.chart3_size1 {
+  width: 10vw;
+  height: 10vw;
+  line-height: 10vw;
+}
+
+.chart3_size2 {
+  width: 8vw;
+  height: 8vw;
+  line-height: 8vw;
+}
+
+.chart3_size3 {
+  width: 6vw;
+  height: 6vw;
+  line-height: 6vw;
+}
+
+.chart3_size4 {
+  width: 5vw;
+  height: 5vw;
+  line-height: 5vw;
+  margin: 2px;
+}
+
+.chart3_circle:hover {
+  transform: scale(1.2, 1.2);
+}
+
+.start {
+  opacity: 0;
+}
+
+.end {
+  opacity: 1;
+  transition: all 0.5s;
+}
+
+.day {
+  background: url("img/day.jpg") center/cover no-repeat;
+}
+
+.night {
+  background: url("img/night.jpg") center/cover no-repeat;
 }
