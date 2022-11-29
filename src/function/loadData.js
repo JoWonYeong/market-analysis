@@ -31,11 +31,11 @@ export default function LoadData(dong) {
                     setPopulationAvg(a.float_pop_year); // 평균유동인구
 
                     let temp = [];
-                    temp.push(a.cafe_period_avg);
-                    temp.push(a.meat_period_avg);
-                    temp.push(a.japanese_period_avg);
-                    temp.push(a.chinese_period_avg);
-                    temp.push(a.korean_period_avg);
+                    temp.push(Math.round(a.cafe_period_avg * 100) / 100);
+                    temp.push(Math.round(a.meat_period_avg * 100) / 100);
+                    temp.push(Math.round(a.japanese_period_avg * 100) / 100);
+                    temp.push(Math.round(a.chinese_period_avg * 100) / 100);
+                    temp.push(Math.round(a.korean_period_avg * 100) / 100);
 
                     setPeriodAvg(temp)  // 평균영업기간
 
