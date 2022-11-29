@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import Spinner from 'react-bootstrap/Spinner';
 import dong from '../data/dong.json';
 import dongCenter from '../data/dongCenter.json';
 import cafe from '../data/crawling/cafe.json';
@@ -6,7 +7,7 @@ import Chart1 from "./chart/Chart1";
 import Chart2 from "./chart/Chart2";
 import Chart3 from "./chart/Chart3";
 import Chart4 from "./chart/Chart4";
-import loadData from "../function/loadData";
+import LoadData from "../function/LoadData";
 const { kakao } = window;
 
 export default function DongDetail({ dong }) {
@@ -16,13 +17,14 @@ export default function DongDetail({ dong }) {
     var populationAvg;  // 평균유동인구
     var periodAvg = []; // 평균영업기간 [식육구이, 일식, 중식, 한식, 휴게] 년
     var aboveAvgCategories = [];    // 영업기간 평균 이상 업종
+    var loading
 
     let x, y;
     let mapLevel;
     let dongPath = [];
 
-    // 변수값 채우기
-    [male, female, ageAvg, populationAvg, periodAvg, aboveAvgCategories] = loadData(dong);
+    // // 변수값 채우기
+    [male, female, ageAvg, populationAvg, periodAvg, aboveAvgCategories, loading] = LoadData(dong);
     [x, y, mapLevel, dongPath] = dongReady(dong, x, y, mapLevel, dongPath);
 
     useEffect(() => {
@@ -44,24 +46,30 @@ export default function DongDetail({ dong }) {
                     height: '85vh'
                 }}></div>
             </div>
-            <div className="detail_right">
-                <div className="detail_right_12">
-                    <div className="detail_right_1">
-                        <Chart1 periodAvg={periodAvg} />
+            {
+                loading ?
+                    <div style={{ display: 'flex', width: '65%', justifyContent: 'center', alignItems: 'center' }}>
+                        <Spinner animation="border" variant="secondary" style={{ width: '7rem', height: '7rem' }} />
+                    </div> :
+                    <div className="detail_right">
+                        <div className="detail_right_12">
+                            <div className="detail_right_1">
+                                <Chart1 periodAvg={periodAvg} />
+                            </div>
+                            <div className="detail_right_2">
+                                <Chart2 dong={dong} ageAvg={ageAvg} populationAvg={populationAvg} />
+                            </div>
+                        </div>
+                        <div className="detail_right_34">
+                            <div className="detail_right_3">
+                                <Chart3 aboveAvgCategories={aboveAvgCategories} />
+                            </div>
+                            <div className="detail_right_4">
+                                <Chart4 male={male} female={female} />
+                            </div>
+                        </div>
                     </div>
-                    <div className="detail_right_2">
-                        <Chart2 dong={dong} ageAvg={ageAvg} populationAvg={populationAvg} />
-                    </div>
-                </div>
-                <div className="detail_right_34">
-                    <div className="detail_right_3">
-                        <Chart3 aboveAvgCategories={aboveAvgCategories} />
-                    </div>
-                    <div className="detail_right_4">
-                        <Chart4 male={male} female={female} />
-                    </div>
-                </div>
-            </div>
+            }
         </div >
     )
 }
