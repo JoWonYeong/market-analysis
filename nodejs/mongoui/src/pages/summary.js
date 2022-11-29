@@ -1,7 +1,7 @@
 import axios from 'axios'
 import * as XLSX from 'xlsx'
 
-const url = 'http://34.64.250.167'
+const url = 'http://34.64.110.2'
 var xlsxData;
 
 export default function Summary() {

@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const url = 'http://34.64.250.167'
+const url = 'http://34.64.110.2'
 
 export default function Home() {
 
