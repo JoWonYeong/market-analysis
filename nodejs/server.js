@@ -31,6 +31,7 @@ app.use(express.static(path.join(__dirname, 'react/build')))
 app.use(express.static(path.join(__dirname, 'mongoui/build')))
 app.use('/test', require('./routes/test'))
 app.use('/summary', require('./routes/summary'))
+app.use('/menu', require('./routes/menu'))
 
 app.get('/commercial-analysis/*', (req, res) => {
     res.sendFile(path.join(__dirname, '/react/build/index.html'))
