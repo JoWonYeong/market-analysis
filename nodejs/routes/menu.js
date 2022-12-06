@@ -14,6 +14,12 @@ router.post('/top-menu', (req, res) => {
             if (classes[i] == '날짜/메뉴명') {
                 result[i] = { class: classes[i], value: -1 }
             }
+            // if (classes[i] == '아메리카노') {
+            //     result[i] = { class: classes[i], value: -1 }
+            // }
+            // if (classes[i] == '아이스 아메리카노') {
+            //     result[i] = { class: classes[i], value: -1 }
+            // }
             result[i] = { class: classes[i], value: result[i] }
         }
 
