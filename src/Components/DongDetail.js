@@ -7,7 +7,7 @@ import Chart1 from "./chart/Chart1";
 import Chart2 from "./chart/Chart2";
 import Chart3 from "./chart/Chart3";
 import Chart4 from "./chart/Chart4";
-import LoadData from "../function/LoadData";
+import LoadData from "../function/loadData";
 const { kakao } = window;
 
 export default function DongDetail({ dong }) {
