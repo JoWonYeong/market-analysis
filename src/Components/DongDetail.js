@@ -70,7 +70,7 @@ export default function DongDetail({ dong }) {
                         </div>
                     </div>
             }
-        </div >
+        </div>
     )
 }
 

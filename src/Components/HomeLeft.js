@@ -13,10 +13,51 @@ export default function HomeLeft() {
     const yesterday = new Date(nowY.setDate(nowY.getDate() - 1));
     const tomorrow = new Date(nowT.setDate(nowT.getDate() + 1));
 
-    // YYMMDD 형식
-    const yesterdayDate = `${yesterday.getFullYear()}${yesterday.getMonth() + 1}${yesterday.getDate()}`;
-    const todayDate = `${now.getFullYear()}${now.getMonth() + 1}${now.getDate()}`;
-    const tomorrowDate = `${tomorrow.getFullYear()}${tomorrow.getMonth() + 1}${tomorrow.getDate()}`;
+    let nowMonth;
+    let nowDate;
+    let yesterMonth;
+    let yesterDate;
+    let tomMonth;
+    let tomDate;
+
+    // 월, 일 형식 변경
+    if ((now.getMonth() + 1).toString().length == 1) {
+        nowMonth = '0' + (now.getMonth() + 1).toString();
+    } else {
+        nowMonth = (now.getMonth() + 1).toString();
+    }
+    if (now.getDate().toString().length == 1) {
+        nowDate = '0' + now.getDate().toString();
+    } else {
+        nowDate = now.getDate().toString();
+    }
+
+    if ((yesterday.getMonth() + 1).toString().length == 1) {
+        yesterMonth = '0' + (yesterday.getMonth() + 1).toString();
+    } else {
+        yesterMonth = (yesterday.getMonth() + 1).toString();
+    }
+    if (yesterday.getDate().toString().length == 1) {
+        yesterDate = '0' + yesterday.getDate().toString();
+    } else {
+        yesterDate = yesterday.getDate().toString();
+    }
+
+    if ((tomorrow.getMonth() + 1).toString().length == 1) {
+        tomMonth = '0' + (tomorrow.getMonth() + 1).toString();
+    } else {
+        tomMonth = (tomorrow.getMonth() + 1).toString();
+    }
+    if (tomorrow.getDate().toString().length == 1) {
+        tomDate = '0' + tomorrow.getDate().toString();
+    } else {
+        tomDate = tomorrow.getDate().toString();
+    }
+
+    // YYYYMMDD 형식
+    const yesterdayDate = `${yesterday.getFullYear()}${yesterMonth}${yesterDate}`;
+    const todayDate = `${now.getFullYear()}${nowMonth}${nowDate}`;
+    const tomorrowDate = `${tomorrow.getFullYear()}${tomMonth}${tomDate}`;
 
     const hour = now.getHours();
 

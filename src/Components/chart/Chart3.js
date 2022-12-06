@@ -1,4 +1,4 @@
-import { useEffect, useState, useContext } from "react";
+import { useEffect, useState } from "react";
 
 export default function Chart3({ aboveAvgCategories }) {
     let count

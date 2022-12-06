@@ -1,4 +1,4 @@
-import chartData from '../data/chartData.json'
+// import chartData from '../data/chartData.json'
 import axios from "axios"
 import { useEffect } from 'react';
 import { useState } from 'react';

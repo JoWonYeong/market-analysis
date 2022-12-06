@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './../sliderOverlayStyle.css'
 import Slider from "react-slick";
+import axios from 'axios';
 import icon1 from './../img/icon/1.png'
 import icon2 from './../img/icon/2.png'
 import icon3 from './../img/icon/3.png'
@@ -16,58 +17,78 @@ export default function ExpectedInfo({ TMX, TMN, SKY, WSD, POP, TMP, hour }) {
     let [dayNight, setDayNight] = useState('');
     let [icon, setIcon] = useState('');
 
+    let [menu, setMenu] = useState([]);
+    let [loading, setLoading] = useState(true);
+
+    // [최고기온, 최저기온, 풍속, 전운량]
+    let data = {
+        input: [TMX, TMN, WSD, SKY]
+    }
 
     useEffect(() => {
         setTimeout(() => {
             setFade('end');
-
-            // 시간 고려해 배경설정
-            if (hour >= 19 || hour <= 5) {
-                setDayNight('night');
-            } else {
-                setDayNight('day');
-            }
-
-            // 날씨 아이콘 설정
-            // 1. 평균 강수확률 (~30%, 30~50%, 50%~)
-            if (POP < 30) {
-                // 2. 평균 전운량 (0~5: 맑음, 6~8: 구름많음, 9~10: 흐림)
-                if (SKY <= 5) {
-                    if (hour >= 6 && hour <= 18) {
-                        // 3. 낮일때
-                        setIcon(icon1);
-                    }
-                    else if (hour >= 19 || hour <= 5) {
-                        // 3. 밤일때
-                        setIcon(icon2);
-                    }
-                }
-                else if (SKY <= 8) {
-                    if (hour >= 6 && hour <= 18) {
-                        setIcon(icon3);
-                    } else if (hour >= 19 || hour <= 5) {
-                        setIcon(icon4);
-                    }
-                }
-                else {
-                    setIcon(icon5);
-                }
-            }
-            else if (POP < 50) {
-                if (hour >= 6 && hour <= 18) {
-                    setIcon(icon6);
-                } else if (hour >= 19 || hour <= 5) {
-                    setIcon(icon7);
-                }
-            } else {
-                setIcon(icon8);
-            }
         }, 10);
+
+        // 배경, 아이콘 정하기
+        // 시간 고려해 배경설정
+        if (hour >= 19 || hour <= 5) {
+            setDayNight('night');
+        } else {
+            setDayNight('day');
+        }
+
+        // 날씨 아이콘 설정
+        // 1. 평균 강수확률 (~30%, 30~50%, 50%~)
+        if (POP < 30) {
+            // 2. 평균 전운량 (0~5: 맑음, 6~8: 구름많음, 9~10: 흐림)
+            if (SKY <= 5) {
+                if (hour >= 6 && hour <= 18) {
+                    // 3. 낮일때
+                    setIcon(icon1);
+                }
+                else if (hour >= 19 || hour <= 5) {
+                    // 3. 밤일때
+                    setIcon(icon2);
+                }
+            }
+            else if (SKY <= 8) {
+                if (hour >= 6 && hour <= 18) {
+                    setIcon(icon3);
+                } else if (hour >= 19 || hour <= 5) {
+                    setIcon(icon4);
+                }
+            }
+            else {
+                setIcon(icon5);
+            }
+        }
+        else if (POP < 50) {
+            if (hour >= 6 && hour <= 18) {
+                setIcon(icon6);
+            } else if (hour >= 19 || hour <= 5) {
+                setIcon(icon7);
+            }
+        } else {
+            setIcon(icon8);
+        }
+
+
+        // 순위 받아오기
+        axios.post('http://34.64.110.2/menu/top-menu', data).then((response) => {
+            response.data.forEach((a, i) => {
+                menu.push(a.class);
+            })
+        }).finally(() => {
+            setTimeout(function () {
+                setLoading(false);
+            }, 200)
+        })
+
         return () => {
             setFade('')
         }
     }, [])
-
 
     // Slider
     const settings = {
@@ -117,7 +138,7 @@ export default function ExpectedInfo({ TMX, TMN, SKY, WSD, POP, TMP, hour }) {
 
                     <div className="box_slider">
                         <div className='box_slider_seeAll d_cursor' onMouseEnter={() => setIsShown(true)} onMouseLeave={() => setIsShown(false)}> 전체보기</div>
-                        {isShown &&
+                        {isShown && !loading &&
                             <div className={`box_slider_seeAll_overlay ${fade2}`}>
                                 <div className="seeAll_triangle"></div>
                                 <div className="seeAlll_info">
@@ -131,11 +152,15 @@ export default function ExpectedInfo({ TMX, TMN, SKY, WSD, POP, TMP, hour }) {
                                             <div className="ranking_element">5</div>
                                         </div>
                                         <div className='seeAll_info_menu'>
-                                            <div className="menu_element">아이스 아메리카노</div>
-                                            <div className="menu_element">카페라떼</div>
-                                            <div className="menu_element">밀크티</div>
-                                            <div className="menu_element">자몽 에이드</div>
-                                            <div className="menu_element">카페모카</div>
+                                            {
+                                                menu.map((a, i) => {
+                                                    if (i < 5) {
+                                                        return (
+                                                            <div className="menu_element" key={i}>{a}</div>
+                                                        )
+                                                    }
+                                                })
+                                            }
                                         </div>
                                     </div>
                                 </div>
@@ -143,12 +168,17 @@ export default function ExpectedInfo({ TMX, TMN, SKY, WSD, POP, TMP, hour }) {
                         }
 
                         <Slider {...settings}>
-                            <div className='box_slider_element'>아이스 아메리카노</div>
-                            <div className='box_slider_element'>카페라떼</div>
-                            <div className='box_slider_element'>밀크티</div>
-                            <div className='box_slider_element'>자몽 에이드</div>
-                            <div className='box_slider_element'>카페모카</div>
+                            {
+                                menu.map((a, i) => {
+                                    if (i < 5) {
+                                        return (
+                                            <div className="box_slider_element" key={i}>{a}</div>
+                                        )
+                                    }
+                                })
+                            }
                         </Slider>
+
                     </div>
                 </div>
             </div>
