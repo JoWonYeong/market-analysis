@@ -36,21 +36,25 @@
 
 ## 4. 구현 결과
 ![1](https://user-images.githubusercontent.com/92977925/226908874-91b4480a-5c23-4de9-8883-b3a70ff9ef74.png)
+
 **[그림 1]**  웹 페이지에 접속하여 오늘의 <전체보기>에 마우스 올렸을 때 보이는 화면1
 
 <br/>
 
 ![2](https://user-images.githubusercontent.com/92977925/226909150-ba838a1e-db1f-4179-9bb3-899fbd583f4d.png)
+
 **[그림 2]** 웹 페이지에 접속하여 내일의 <전체보기>에 마우스 올렸을 때 보이는 화면2
 
 <br/>
 
 ![3](https://user-images.githubusercontent.com/92977925/226909506-94458c63-1e52-4be2-8866-fe5e96325201.png)
+
 **[그림 3]** 웹 페이지에 낮에 접속하면 보이는 화면
 
 <br/>
 
 ![4](https://user-images.githubusercontent.com/92977925/226909653-f8c22e84-edf8-431c-adea-6d6ddcdcd66a.png)
+
 **[그림 4]** 오른쪽 지도 위의 특정 동을 클릭했을 때 뜨는 모달 창
 
 <br/>
