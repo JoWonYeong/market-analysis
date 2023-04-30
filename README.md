@@ -65,7 +65,7 @@ Back-End : 3명
 <br />
 
 ## 6. 참고사항
-UCWIT 2022 한국정보과학회 학술심포지엄 논문 기재
+- UCWIT 2022 한국정보과학회 학술심포지엄 논문 기재
 
-🔗 팀 노션
+- 팀 노션 : 
 [https://fearless-daughter-e0c.notion.site/4-b5804aeb23fd4505a7b2343ea6cef846](https://www.notion.so/b5804aeb23fd4505a7b2343ea6cef846)
