@@ -15,7 +15,7 @@
 <br />
 
 ### ➡️ 개발 환경
-![](https://github.com/JoWonYeong/YeongTube/assets/92977925/d06b72df-f6cc-401a-a740-485f01246920)
+<!-- ![](https://github.com/JoWonYeong/YeongTube/assets/92977925/d06b72df-f6cc-401a-a740-485f01246920) -->
 - 개발도구 : `VSCode`
 - 서버 : `Google Cloud`를 통해 `docker`를 활용한 `mongoDB` , `node.js` , `Nginx`,  `Tensorflow` 연동하여 배포
 - 클라이언트 : `JavaScript` , `React.js`
